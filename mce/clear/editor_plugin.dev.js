@@ -33,13 +33,12 @@
             var insertClear = function(clear){
 				var html = clearHTML.replace(/\$1/g, clear);
                 ed.execCommand('mceInsertContent', false, html);
-
+                // ed.selection.setContent('');
             };
 			
 			ed.addCommand('clearLeft', function(){ insertClear('left'); });
 			ed.addCommand('clearRight', function(){ insertClear('right'); });
 			ed.addCommand('clearBoth', function(){ insertClear('both'); });
-
 
 			// Set active buttons if user selected pagebreak or more break
 			ed.onNodeChange.add(function(ed, cm, n) {
@@ -77,7 +76,7 @@
 
 			// Replace images with clear
 			ed.onPostProcess.add(function(ed, o) {
-				if (o.get)
+				if (o.get){
 					o.content = o.content.replace(/<img[^>]+>/g, function(html) {
 						if (html.indexOf('class="mceClear') !== -1) {
 							var m, clear = (m = html.match(/mceClear([a-z]+)/)) ? m[1] : '';
@@ -85,6 +84,7 @@
 						}
 						return html;
 					});
+                }
 			});
 		},
 

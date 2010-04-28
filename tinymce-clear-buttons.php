@@ -34,7 +34,8 @@ function register_tinymce_clear_buttons($buttons) {
  
 // Load the TinyMCE plugin : editor_plugin.js (wp2.5)
 function add_tinymce_clear_plugin($plugin_array) {
-  $plugin_array['clear'] = WP_PLUGIN_URL .'/tinymce-clear/mce/clear/editor_plugin.js';
+  $plugin_name = preg_replace('/\.php/','',basename(__FILE__));
+  $plugin_array['clear'] = WP_PLUGIN_URL .'/'.$plugin_name.'/mce/clear/editor_plugin.js';
    return $plugin_array;
 }
  

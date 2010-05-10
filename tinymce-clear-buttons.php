@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: TinyMCE Clear
-Plugin URI: http://www.peix.org/code
+Plugin URI: http://www.peix.org/code/tinymce-clear-buttons
 Description: Enables TinyMCE clear buttons
 Version: 1.1
 Author: Miguel Ibero
